@@ -93,7 +93,9 @@ footer {
 
 .button {
   display: flex;
+  text-align: center;
   justify-content: center;
+  flex-wrap: wrap;
   margin-right: 0.5rem;
   margin-top: 0.5rem;
   font-size: 1.5rem;
