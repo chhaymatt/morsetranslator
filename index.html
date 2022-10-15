@@ -14,38 +14,6 @@
     <header>
         <h1>Morse Translator</h1>
     </header>
-    <!-- <main>
-        <div>
-            <h2>English to Morse</h2>
-            <div>
-                <div class="side">
-                    <textarea name="englishInput" id="englishInput" cols="30" rows="10"></textarea>
-                    <button id="englishToMorseButton">Translate</button>
-                </form>
-            </div>
-
-            <div class="result">
-                <h3>Morse Result</h2>
-                <p id="morseResult"></p>
-            </div>
-
-        </div>
-        <br>
-        <br>
-        <br>
-        <div>
-            <h2>Morse to English</h2>
-            <div class="side">
-                <textarea name="morseInput" id="morseInput" cols="30" rows="10"></textarea>
-                <button id="morseToEnglishButton">Translate</button>
-            </form>
-
-            <div class="result">
-                <h3>English Result</h2>
-                <p id="englishResult"></p>
-            </div>
-        </div>
-    </main> -->
 
     <main>
         <div class="top" id="languageRow">
@@ -60,13 +28,28 @@
             </div>
         </div>
         <div class="translate">
-            <textarea class="translate__input" id="input" placeholder="Enter text"></textarea>
+            <div class="translate__section">
+                <textarea class="translate__input" id="input" placeholder="Enter text"></textarea>
+            </div>
             <div class="translate__middle"></div>
-            <div class="translate__output" id="output">Translation</div>
+            <div class="translate__section">
+                <div class="translate__output" id="output">Translation</div>
+            </div>
+        </div>
+        <div class="bottom">
+            <div class="bottom__buttons">
+                <button class="button" id="clearButton"><i class="fa-solid fa-trash"></i></button>
+                <button class="button copy" id="copyInputButton"><i class="fa-solid fa-copy"></i></button>
+                <button class="button" id="separateButton">Separating words by <b>|</b></button>
+            </div>
+            <div class="bottom__middle"></div>
+            <div class="bottom__buttons">
+                <button class="button" id="copyOutputButton"><i class="fa-solid fa-copy"></i></button>
+            </div>
         </div>
     </main>
     <footer>
-        <p>2022 | Made by Matthew Chhay</p>
+        <p id="footerText">Made by Matthew Chhay</p>
     </footer>
 </body>
 </html>
