@@ -6,13 +6,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script defer type="module" src="./scripts/script.js"></script>
     <link rel="stylesheet" href="./styles/style.css">
+    <!-- Font Awesome -->
+    <script src="https://kit.fontawesome.com/c3aaf1830b.js" crossorigin="anonymous"></script>
     <title>Matthew Chhay | Morse Translator</title>
 </head>
 <body>
     <header>
         <h1>Morse Translator</h1>
     </header>
-    <main>
+    <!-- <main>
         <div>
             <h2>English to Morse</h2>
             <div>
@@ -43,9 +45,28 @@
                 <p id="englishResult"></p>
             </div>
         </div>
+    </main> -->
+
+    <main>
+        <div class="top" id="languageRow">
+            <div class="top__language">
+                <p id="languageFrom">English</p>
+            </div>
+            <div class="top__swap">
+                <i class="fa-solid fa-right-left"></i>
+            </div>
+            <div class="top__language">
+                <p id="languageTo">Morse</p>
+            </div>
+        </div>
+        <div class="translate">
+            <textarea class="translate__input" id="input" placeholder="Enter text"></textarea>
+            <div class="translate__middle"></div>
+            <div class="translate__output" id="output">Translation</div>
+        </div>
     </main>
     <footer>
-        <p>2022 | Matthew Chhay</p>
+        <p>2022 | Made by Matthew Chhay</p>
     </footer>
 </body>
 </html>

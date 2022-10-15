@@ -8,28 +8,32 @@ const morse = ".... . -.--|-- -.--|-. .- -- .|.. ...|-- .- - - .... . .--";
 console.log(translate.englishToMorse(words, data.dictionary, joiner));
 console.log(translate.morseToEnglish(morse, data.dictionary, joiner));
 
+// Settings
+let toEnglish = false;
 
-// Results
-const englishResult = document.getElementById("englishResult");
-const morseResult = document.getElementById("morseResult");
+// ID elements
+const input = document.getElementById("input");
+const output = document.getElementById("output");
+const languageFrom = document.getElementById("languageFrom");
+const languageTo = document.getElementById("languageTo");
+const languageRow = document.getElementById("languageRow");
 
-const displayMorse = () => {
-    const englishInput = document.getElementById("englishInput");
-    const result = translate.englishToMorse(englishInput.value, data.dictionary, joiner);
-    morseResult.innerText = result;
+const display = (input, boolean, joiner) => {
+    const result = boolean ? translate.morseToEnglish(input.value, data.dictionary, joiner) : translate.englishToMorse(input.value, data.dictionary, joiner);
+    output.innerText = result;
 }
 
-const displayEnglish = () => {
-    const morseInput = document.getElementById("morseInput");
-    const result =  translate.morseToEnglish(morseInput.value, data.dictionary, joiner);
-    englishResult.innerText = result;
+const switchLanguage = () => {
+    toEnglish = !toEnglish;
+    if (toEnglish) {
+        languageFrom.innerText = "Morse";
+        languageTo.innerText = "English";
+    } else {
+        languageFrom.innerText = "English";
+        languageTo.innerText = "Morse";
+    }
+    display(input, toEnglish, "|");
 }
-
-// Buttons
-const englishToMorseButton = document.getElementById("englishToMorseButton");
-const morseToEnglishButton = document.getElementById("morseToEnglishButton");
-
-// Click to handlers
-englishToMorseButton.addEventListener("click", displayMorse);
-morseToEnglishButton.addEventListener("click", displayEnglish);
+input.addEventListener("input", () => display(input, toEnglish, "|"));
+languageRow.addEventListener("click", switchLanguage);
 
