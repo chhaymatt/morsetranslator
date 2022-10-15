@@ -79,20 +79,21 @@ footer {
   display: flex;
   flex-direction: row;
   justify-content: center;
-  align-items: center;
 }
 .bottom__buttons {
   padding: 1rem;
   flex-direction: row;
   justify-content: center;
-  width: 40%;
+  width: 40vw;
 }
 .bottom__middle {
   width: 5vw;
   padding: 1rem;
 }
 
-button {
+.button {
+  display: flex;
+  justify-content: center;
   margin-right: 0.5rem;
   margin-top: 0.5rem;
   font-size: 1.5rem;
@@ -102,14 +103,20 @@ button {
   border: 1px solid lightgrey;
   color: #333333;
 }
-button:hover {
+.button b {
+  margin-left: 0.5rem;
+}
+.button i {
+  margin-left: 0.5rem;
+}
+.button:hover {
   cursor: pointer;
   background-color: lightgrey;
 }
-button:disabled {
+.button:disabled {
   background-color: lightgrey;
   cursor: not-allowed;
 }
-button:active {
+.button:active {
   background-color: rgb(124, 124, 124);
 }
