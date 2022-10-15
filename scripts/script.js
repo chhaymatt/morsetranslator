@@ -59,19 +59,23 @@ const dictionary = {
     " ": "|"
 }
 
-const englishInput = "Hello there, my name is Matt";
-const englishUpper = englishInput.toUpperCase();
-console.log(englishUpper);
+const englishToMorse = (input, separator = "|") => {
+    const capitalise = input.toUpperCase(); // Capitalises every character
+    const words = capitalise.split(" "); // Splits each word into an array element
+    const wordsCharacters = words.map(word => word.split("")) // Splits each character into a nested array element
+    const morseWordsCharacters = wordsCharacters.map(word => word.map(character => dictionary[character])); // Converts every character in each word to morse code
+    const morseWords = morseWordsCharacters.map(character => character.join(" ")); // Joins each morse code chracter with a space
+    const morse = morseWords.join(separator);
+    return morse;
+}
 
-const englishUpperWords = englishUpper.split(" ");
-console.log(englishUpperWords);
-const englishUpperWord = englishUpperWords.map(word => word.split(""));
-console.log(englishUpperWord);
+const words = "Hey my name is Matthew";
+const joiner = "|";
+console.log(englishToMorse(words,joiner));
 
-// const morseWordArr2 = englishUpperWord.map(word => word.map(letter => dictionary[letter])); 
-const morseWordArr2 = englishUpperWord.map(word => word.map(letter => dictionary[letter]));
-console.log(morseWordArr2);
-const morseWordArrSpaced = morseWordArr2.map(word => word.join(" "));
-console.log(morseWordArrSpaced);
-const morseWordFinal = morseWordArrSpaced.join("|")
-console.log(morseWordFinal);
+
+
+const morseToEnglish = (input, separator = "|") => {
+
+    return;
+}
