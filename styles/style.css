@@ -1,0 +1,43 @@
+/* SCSS HEX */
+* {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+  background-color: #fef9ff;
+}
+
+header {
+  display: flex;
+  justify-content: center;
+  margin-top: 1rem;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 1rem;
+}
+
+.side {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin: 1rem;
+}
+.side label {
+  margin-right: 1rem;
+}
+
+h1 {
+  color: #d4c1ec;
+}
+
+footer {
+  display: flex;
+  justify-content: center;
+}
