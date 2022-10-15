@@ -59,26 +59,19 @@ const dictionary = {
     " ": "|"
 }
 
-// Starting with a single word
-const word = "HEY";
-const letters = word.split("");
-console.log(letters);
-const morseWordArr = letters.map(letter => dictionary[letter]);
-console.log(morseWordArr);
-const joinedMorseWordArr = morseWordArr.join(" ");
-console.log(joinedMorseWordArr);
+const englishInput = "Hello there, my name is Matt";
+const englishUpper = englishInput.toUpperCase();
+console.log(englishUpper);
 
+const englishUpperWords = englishUpper.split(" ");
+console.log(englishUpperWords);
+const englishUpperWord = englishUpperWords.map(word => word.split(""));
+console.log(englishUpperWord);
 
-
-
-
-
-
-// const englishInput = "Hello there! My name is Matt!";
-// const englishUpper = englishInput.toUpperCase();
-// console.log(englishUpper);
-
-// const englishUpperWords = englishUpper.split(" ");
-// console.log(englishUpperWords);
-// const englishUpperWord = englishUpperWords.map(word => word.split(""));
-// console.log(englishUpperWord);
+// const morseWordArr2 = englishUpperWord.map(word => word.map(letter => dictionary[letter])); 
+const morseWordArr2 = englishUpperWord.map(word => word.map(letter => dictionary[letter]));
+console.log(morseWordArr2);
+const morseWordArrSpaced = morseWordArr2.map(word => word.join(" "));
+console.log(morseWordArrSpaced);
+const morseWordFinal = morseWordArrSpaced.join("|")
+console.log(morseWordFinal);
