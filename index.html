@@ -10,16 +10,38 @@
 </head>
 <body>
     <header>
-        <h1>More Translator</h1>
+        <h1>Morse Translator</h1>
     </header>
     <main>
-        <div class="side">
-            <label for="userinput">English to Morse</label>
-            <textarea name="userinput" id="userinput" cols="30" rows="10"></textarea>
+        <div>
+            <h2>English to Morse</h2>
+            <div>
+                <div class="side">
+                    <textarea name="englishInput" id="englishInput" cols="30" rows="10"></textarea>
+                    <button id="englishToMorseButton">Translate</button>
+                </form>
+            </div>
+
+            <div class="result">
+                <h3>Morse Result</h2>
+                <p id="morseResult"></p>
+            </div>
+
         </div>
-        <div class="side">
-            <label for="morseinput">Morse to English</label>
-            <textarea name="morseinput" id="morseinput" cols="30" rows="10"></textarea>
+        <br>
+        <br>
+        <br>
+        <div>
+            <h2>Morse to English</h2>
+            <div class="side">
+                <textarea name="morseInput" id="morseInput" cols="30" rows="10"></textarea>
+                <button id="morseToEnglishButton">Translate</button>
+            </form>
+
+            <div class="result">
+                <h3>English Result</h2>
+                <p id="englishResult"></p>
+            </div>
         </div>
     </main>
     <footer>
