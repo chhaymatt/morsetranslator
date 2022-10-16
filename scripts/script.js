@@ -104,7 +104,7 @@ if ('speechSynthesis' in window) {
 
 const textToSpeech = (input) => {
     const msg = new SpeechSynthesisUtterance();
-    msg.voice = speechSynthesis.getVoices().find(voice => voice.voiceURI === "Alex"); // "Alex", "Karen"
+    msg.voice = speechSynthesis.getVoices().find(voice => voice.voiceURI === "Karen"); // "Alex", "Karen"
     msg.text = input.value;
     console.log(msg.text);
     window.speechSynthesis.speak(msg);
