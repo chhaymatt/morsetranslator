@@ -16,7 +16,7 @@ const input = document.getElementById("input");
 const output = document.getElementById("output");
 const languageFrom = document.getElementById("languageFrom");
 const languageTo = document.getElementById("languageTo");
-const languageRow = document.getElementById("languageRow");
+const languageRow = document.getElementsByClassName("translate__language");
 const copyInputButton = document.getElementById("copyInputButton");
 const copyOutputButton = document.getElementById("copyOutputButton");
 const separateButton = document.getElementById("separateButton");
@@ -76,7 +76,8 @@ const clearInput = () => {
 
 // Translate whenever there is a change to the input text area or when switching from or to Morse
 input.addEventListener("input", () => display(input, translateToEnglish, morseSeparator));
-languageRow.addEventListener("click", switchLanguage);
+languageRow[0].addEventListener("click", switchLanguage);
+languageRow[1].addEventListener("click", switchLanguage);
 
 // CopyButton to callback
 copyInputButton.addEventListener("click", () => copy(input));

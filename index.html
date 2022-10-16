@@ -17,34 +17,35 @@
 
     <main>
         <div class="top" id="languageRow">
-            <div class="top__language">
-                <p id="languageFrom">English</p>
-            </div>
-            <div class="top__swap">
-                <i class="fa-solid fa-right-left"></i>
-            </div>
-            <div class="top__language">
-                <p id="languageTo">Morse</p>
-            </div>
+            
+            
+            
         </div>
         <div class="translate">
             <div class="translate__section">
+                <div class="translate__language">
+                    <p id="languageFrom">English</p>
+                </div>
                 <textarea class="translate__input" id="input" placeholder="Enter text"></textarea>
+                <div class="translate__buttons">
+                    <div class="button" id="clearButton"><i class="fa-solid fa-trash"></i></div>
+                    <div class="button copy" id="copyInputButton"><i class="fa-solid fa-copy"></i></div>
+                    <div class="button" id="separateButton">Separating words by <b>|</b></div>
+                </div>
             </div>
-            <div class="translate__middle"></div>
+            <div class="translate__middle">
+                <div class="translate__swap">
+                    <i class="fa-solid fa-right-left"></i>
+                </div>
+            </div>
             <div class="translate__section">
+                <div class="translate__language">
+                    <p id="languageTo">Morse</p>
+                </div>
                 <div class="translate__output" id="output">Translation</div>
-            </div>
-        </div>
-        <div class="bottom">
-            <div class="bottom__buttons">
-                <div class="button" id="clearButton"><i class="fa-solid fa-trash"></i></div>
-                <div class="button copy" id="copyInputButton"><i class="fa-solid fa-copy"></i></div>
-                <div class="button" id="separateButton">Separating words by <b>|</b></div>
-            </div>
-            <div class="bottom__middle"></div>
-            <div class="bottom__buttons">
-                <div class="button" id="copyOutputButton"><i class="fa-solid fa-copy"></i></button>
+                <div class="translate__buttons">
+                    <div class="button" id="copyOutputButton"><i class="fa-solid fa-copy"></i></button>
+                </div>
             </div>
         </div>
     </main>
