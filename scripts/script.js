@@ -24,6 +24,7 @@ const clearButton = document.getElementById("clearButton");
 const footerText = document.getElementById("footerText");
 const swapButton = document.getElementById("swapButton");
 const playInputButton = document.getElementById("playInputButton");
+const playOutputButton = document.getElementById("playOutputButton");
 
 const display = (input, boolean, morseSeparator) => {
     const result = boolean ? translate.morseToEnglish(input.value, data.dictionary, morseSeparator) : translate.englishToMorse(input.value, data.dictionary, morseSeparator);
@@ -50,10 +51,8 @@ const copy = (element) => {
 
         // Check if element is from input or from output
         if (element.id === "input") {
-            console.log(`Copied ${element.value}`);
             navigator.clipboard.writeText(element.value);
         } else {
-            console.log(`Copied ${element.innerText}`);
             navigator.clipboard.writeText(element.innerText);
         }   
     }
@@ -92,23 +91,36 @@ separateButton.addEventListener("click", switchSeparator);
 // ClearButton to callback
 clearButton.addEventListener("click", clearInput);
 
-// Update footer year
-footerText.innerText = `${new Date().getFullYear()} | Matthew Chhay`;
-
 if ('speechSynthesis' in window) {
     // Speech Synthesis supported 🎉
 } else {
     // Speech Synthesis Not Supported 😣
-    alert("Sorry, your browser doesn't support text to speech!");
+    //alert("Sorry, your browser doesn't support text to speech!");
+    playInputButton.remove();
+    playOutputButton.remove();
 }
 
-const textToSpeech = (input) => {
-    const msg = new SpeechSynthesisUtterance();
-    msg.voice = speechSynthesis.getVoices().find(voice => voice.voiceURI === "Karen"); // "Alex", "Karen"
-    msg.text = input.value;
-    console.log(msg.text);
-    window.speechSynthesis.speak(msg);
+const textToSpeech = (element) => {
+    if (typeof element.innerText !== "undefined" || typeof element.value !== "undefined") {
+        const msg = new SpeechSynthesisUtterance();
+        // Check if element is from input or from output
+        if (element.id === "input") {
+            msg.text = element.value;
+        } else {
+            msg.text = element.innerText;
+        }   
+        msg.voice = speechSynthesis.getVoices().find(voice => voice.voiceURI === "Karen"); // "Alex", "Karen"
+        window.speechSynthesis.speak(msg);
+    }
+   
 }
 
 // Play text to speech
 playInputButton.addEventListener("click", () => textToSpeech(input));
+playOutputButton.addEventListener("click", () => textToSpeech(output));
+
+// Run text to speech on page load to fix voice (no sound will be played due to lack of input)
+textToSpeech(input);
+
+// Update footer year
+footerText.innerText = `${new Date().getFullYear()} | Matthew Chhay`;
