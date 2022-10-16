@@ -37,6 +37,7 @@ main {
 .translate__language {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   font-size: 2rem;
   padding: 1rem;
   border-radius: 1rem;

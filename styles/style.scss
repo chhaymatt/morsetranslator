@@ -35,6 +35,7 @@ main {
     &__language {
         display: flex;
         justify-content: space-between;
+        align-items: center;
         font-size: 2rem;
         padding: 1rem;
         border-radius: 1rem;
@@ -155,7 +156,6 @@ footer {
 
 
 .language {
-    
     &__text {
         font-size: 1rem;
     }
