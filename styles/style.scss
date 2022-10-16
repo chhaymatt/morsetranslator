@@ -1,3 +1,5 @@
+@use "./partials/mixins";
+
 * {
     margin: 0;
     padding: 0;
@@ -8,26 +10,32 @@
 h1 {
     text-align: center;
     font-size: 3rem;
-    margin: 2rem;
+    margin-top: 2rem;
+    margin-bottom: 0rem;
     color: #333333;
+    @include mixins.phone {
+        font-size: 2rem;
+        margin-top: 1.5rem;
+        margin-bottom: 0rem;
+    }
 }
 
-
-.top {
+main {
     display: flex;
-    flex-direction: row;
-    align-items: center;
     justify-content: center;
-    margin-bottom: 1rem;
-    cursor: pointer;
-
-
+    align-items: center;
+    padding: 1rem;
+    
 }
 
 .translate {
     display: flex;
     flex-direction: row;
     justify-content: center;
+    width: 100%;
+    @include mixins.phone {
+        flex-direction: column;
+    }
 
     &__language {
         font-size: 2rem;
@@ -39,6 +47,11 @@ h1 {
         user-select: none;
         -webkit-touch-callout: none;
         margin-bottom: 1rem;
+
+        @include mixins.phone {
+            font-size: 1.5rem;
+            padding: 0.5rem;
+        }
     }
 
     &__swap {
@@ -47,10 +60,15 @@ h1 {
         padding: 1rem;
         text-align: center;
         color: #333333;
+
+        @include mixins.phone {
+            padding: 0.5rem;
+        }
     }
+
     &__input {
         padding: 1rem;
-        width: 40vw;
+        min-width: 40vw;
         min-height: 40vh;
         font-size: 1.5rem;
         resize: none;
@@ -58,32 +76,41 @@ h1 {
         border: none;
         border-radius: 1rem;
         color: #333333;
+        @include mixins.phone {
+             width: 95%;
+             padding: 0.5rem;
+        }
     }
 
     &__output {
         padding: 1rem;
-        width: 40vw;
+        min-width: 40vw;
         min-height: 40vh;
         font-size: 1.5rem;
         border: 1px solid rgb(234, 234, 234);
         border-radius: 1rem;
         color: #333333;
         background-color: rgb(234, 234, 234);
+        @include mixins.phone {
+            padding: 0.5rem;
+        }
     }
     
     &__buttons {
         margin-top: 1rem;
+        
     }
-    &__middle {
 
+    &__middle {
+        display: flex;
+        justify-content: center;
     }
 }
 
 footer {
-    margin-top: 2rem;
     text-align: center;
     color: #333333;
-    padding: 1rem;
+    padding-bottom: 1rem;
 }
 
 .button {
@@ -98,6 +125,9 @@ footer {
     background-color:rgb(234, 234, 234);
     border: 1px solid lightgrey;
     color: #333333;
+    @include mixins.phone {
+        padding: 0.5rem;
+    }
 
     b {
         margin-left: 0.5rem;

@@ -1,0 +1,33 @@
+@use "./devices";
+
+@mixin phone {
+    @media only screen and (max-width: devices.$xs) {
+        @content;
+    }
+}
+
+@mixin tablet {
+    @media only screen and (min-width: (devices.$xs + 1px)) and (max-width: devices.$md) {
+        @content;
+    }
+}
+
+@mixin tablet-landscape {
+    @media only screen and (min-width: (devices.$md + 1px)) and (max-width: devices.$lg) {
+        @content;
+    }
+}
+
+@mixin laptop {
+    @media only screen and (min-width: (devices.$lg + 1px)) and (max-width: devices.$xl) {
+        @content;
+    }
+}
+
+@mixin desktop {
+    @media only screen and (min-width: (devices.$xl + 1px)) {
+        @content;
+    }
+}
+
+
