@@ -23,6 +23,7 @@ const separateButton = document.getElementById("separateButton");
 const clearButton = document.getElementById("clearButton");
 const footerText = document.getElementById("footerText");
 const swapButton = document.getElementById("swapButton");
+const playInputButton = document.getElementById("playInputButton");
 
 const display = (input, boolean, morseSeparator) => {
     const result = boolean ? translate.morseToEnglish(input.value, data.dictionary, morseSeparator) : translate.englishToMorse(input.value, data.dictionary, morseSeparator);
@@ -91,4 +92,23 @@ separateButton.addEventListener("click", switchSeparator);
 // ClearButton to callback
 clearButton.addEventListener("click", clearInput);
 
+// Update footer year
 footerText.innerText = `${new Date().getFullYear()} | Matthew Chhay`;
+
+if ('speechSynthesis' in window) {
+    // Speech Synthesis supported 🎉
+} else {
+    // Speech Synthesis Not Supported 😣
+    alert("Sorry, your browser doesn't support text to speech!");
+}
+
+const textToSpeech = (input) => {
+    const msg = new SpeechSynthesisUtterance();
+    msg.voice = speechSynthesis.getVoices().find(voice => voice.voiceURI === "Alex"); // "Alex", "Karen"
+    msg.text = input.value;
+    console.log(msg.text);
+    window.speechSynthesis.speak(msg);
+}
+
+// Play text to speech
+playInputButton.addEventListener("click", () => textToSpeech(input));
