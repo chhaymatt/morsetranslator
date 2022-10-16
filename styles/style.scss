@@ -63,6 +63,7 @@ main {
     }
 
     &__input {
+        word-wrap: break-word;
         padding: 1rem;
         width: 40vw;
         min-height: 40vh;
@@ -78,6 +79,7 @@ main {
     }
 
     &__output {
+        word-wrap: break-word;
         padding: 1rem;
         width: 40vw;
         min-height: 40vh;
