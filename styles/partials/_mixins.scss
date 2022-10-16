@@ -7,6 +7,13 @@
 }
 
 @mixin tablet {
+    @media only screen and (max-width: devices.$md) {
+        @content;
+    }
+}
+
+
+@mixin tablet {
     @media only screen and (min-width: (devices.$xs + 1px)) and (max-width: devices.$md) {
         @content;
     }

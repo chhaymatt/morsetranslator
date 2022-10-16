@@ -7,15 +7,12 @@
 h1 {
   text-align: center;
   font-size: 3rem;
-  margin-top: 2rem;
-  margin-bottom: 0rem;
+  margin-top: 1rem;
   color: #333333;
 }
-@media only screen and (max-width: 600px) {
+@media only screen and (min-width: 601px) and (max-width: 992px) {
   h1 {
     font-size: 2rem;
-    margin-top: 1.5rem;
-    margin-bottom: 0rem;
   }
 }
 
@@ -32,7 +29,7 @@ main {
   justify-content: center;
   width: 100%;
 }
-@media only screen and (max-width: 600px) {
+@media only screen and (min-width: 601px) and (max-width: 992px) {
   .translate {
     flex-direction: column;
   }
@@ -48,10 +45,10 @@ main {
   -webkit-touch-callout: none;
   margin-bottom: 1rem;
 }
-@media only screen and (max-width: 600px) {
+@media only screen and (min-width: 601px) and (max-width: 992px) {
   .translate__language {
     font-size: 1.5rem;
-    padding: 0.5rem;
+    padding: 1rem;
   }
 }
 .translate__swap {
@@ -61,7 +58,7 @@ main {
   text-align: center;
   color: #333333;
 }
-@media only screen and (max-width: 600px) {
+@media only screen and (min-width: 601px) and (max-width: 992px) {
   .translate__swap {
     padding: 0.5rem;
   }
@@ -77,10 +74,9 @@ main {
   border-radius: 1rem;
   color: #333333;
 }
-@media only screen and (max-width: 600px) {
+@media only screen and (min-width: 601px) and (max-width: 992px) {
   .translate__input {
     width: 95%;
-    padding: 0.5rem;
   }
 }
 .translate__output {
@@ -92,11 +88,6 @@ main {
   border-radius: 1rem;
   color: #333333;
   background-color: rgb(234, 234, 234);
-}
-@media only screen and (max-width: 600px) {
-  .translate__output {
-    padding: 0.5rem;
-  }
 }
 .translate__buttons {
   margin-top: 1rem;
@@ -125,7 +116,7 @@ footer {
   border: 1px solid lightgrey;
   color: #333333;
 }
-@media only screen and (max-width: 600px) {
+@media only screen and (min-width: 601px) and (max-width: 992px) {
   .button {
     padding: 0.5rem;
   }
