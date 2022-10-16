@@ -155,3 +155,12 @@ footer {
 .language__text {
   font-size: 1rem;
 }
+
+.link {
+  color: #333333;
+  text-decoration: none;
+}
+.link:hover {
+  color: rgb(39, 52, 105);
+  font-weight: bold;
+}

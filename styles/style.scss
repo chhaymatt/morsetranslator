@@ -160,3 +160,13 @@ footer {
         font-size: 1rem;
     }
 }
+
+.link {
+    color: #333333;
+    text-decoration: none;
+
+    &:hover {
+        color: rgb(39, 52, 105);
+        font-weight: bold;
+    }
+}
