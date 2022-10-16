@@ -55,7 +55,8 @@ main {
         padding: 1rem;
         text-align: center;
         color: #333333;
-
+        cursor: pointer;
+        
         @include mixins.tablet {
             padding: 0.5rem;
         }

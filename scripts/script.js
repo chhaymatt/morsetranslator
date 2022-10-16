@@ -22,6 +22,7 @@ const copyOutputButton = document.getElementById("copyOutputButton");
 const separateButton = document.getElementById("separateButton");
 const clearButton = document.getElementById("clearButton");
 const footerText = document.getElementById("footerText");
+const swapButton = document.getElementById("swapButton");
 
 const display = (input, boolean, morseSeparator) => {
     const result = boolean ? translate.morseToEnglish(input.value, data.dictionary, morseSeparator) : translate.englishToMorse(input.value, data.dictionary, morseSeparator);
@@ -78,6 +79,7 @@ const clearInput = () => {
 input.addEventListener("input", () => display(input, translateToEnglish, morseSeparator));
 languageRow[0].addEventListener("click", switchLanguage);
 languageRow[1].addEventListener("click", switchLanguage);
+swapButton.addEventListener("click", switchLanguage);
 
 // CopyButton to callback
 copyInputButton.addEventListener("click", () => copy(input));
