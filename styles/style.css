@@ -10,7 +10,7 @@ h1 {
   margin-top: 1rem;
   color: #333333;
 }
-@media only screen and (max-width: 992px) {
+@media only screen and (max-width: 768px) {
   h1 {
     font-size: 2rem;
   }
@@ -29,23 +29,26 @@ main {
   justify-content: center;
   width: 100%;
 }
-@media only screen and (max-width: 992px) {
+@media only screen and (max-width: 768px) {
   .translate {
     flex-direction: column;
   }
 }
 .translate__language {
+  display: flex;
+  justify-content: space-between;
   font-size: 2rem;
   padding: 1rem;
   border-radius: 1rem;
   border: 1px solid lightgrey;
+  background-color: rgb(234, 234, 234);
   color: #333333;
   cursor: pointer;
   user-select: none;
   -webkit-touch-callout: none;
   margin-bottom: 1rem;
 }
-@media only screen and (max-width: 992px) {
+@media only screen and (max-width: 768px) {
   .translate__language {
     font-size: 1.5rem;
     padding: 1rem;
@@ -59,7 +62,7 @@ main {
   color: #333333;
   cursor: pointer;
 }
-@media only screen and (max-width: 992px) {
+@media only screen and (max-width: 768px) {
   .translate__swap {
     padding: 0.5rem;
   }
@@ -76,9 +79,9 @@ main {
   border-radius: 1rem;
   color: #333333;
 }
-@media only screen and (max-width: 992px) {
+@media only screen and (max-width: 768px) {
   .translate__input {
-    width: 95%;
+    width: 93.5%;
   }
 }
 .translate__output {
@@ -90,11 +93,11 @@ main {
   border: 1px solid rgb(234, 234, 234);
   border-radius: 1rem;
   color: #333333;
-  background-color: rgb(234, 234, 234);
+  background-color: rgb(248, 248, 248);
 }
-@media only screen and (max-width: 992px) {
+@media only screen and (max-width: 768px) {
   .translate__output {
-    width: 95%;
+    width: 93.5%;
   }
 }
 .translate__buttons {
@@ -123,8 +126,9 @@ footer {
   background-color: rgb(234, 234, 234);
   border: 1px solid lightgrey;
   color: #333333;
+  user-select: none;
 }
-@media only screen and (max-width: 992px) {
+@media only screen and (max-width: 768px) {
   .button {
     padding: 0.5rem;
   }
@@ -144,5 +148,9 @@ footer {
   cursor: not-allowed;
 }
 .button:active {
-  background-color: rgb(124, 124, 124);
+  background-color: rgb(185, 185, 185);
+}
+
+.language__text {
+  font-size: 1rem;
 }
