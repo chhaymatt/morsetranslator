@@ -63,7 +63,7 @@ main {
 
     &__input {
         padding: 1rem;
-        min-width: 40vw;
+        width: 40vw;
         min-height: 40vh;
         font-size: 1.5rem;
         resize: none;
@@ -72,13 +72,13 @@ main {
         border-radius: 1rem;
         color: #333333;
         @include mixins.tablet {
-             width: 95%;
+            width: 95%;
         }
     }
 
     &__output {
         padding: 1rem;
-        min-width: 40vw;
+        width: 40vw;
         min-height: 40vh;
         font-size: 1.5rem;
         border: 1px solid rgb(234, 234, 234);
@@ -86,7 +86,7 @@ main {
         color: #333333;
         background-color: rgb(234, 234, 234);
         @include mixins.tablet {
-
+            width: 95%;
         }
     }
     

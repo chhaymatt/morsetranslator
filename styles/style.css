@@ -65,7 +65,7 @@ main {
 }
 .translate__input {
   padding: 1rem;
-  min-width: 40vw;
+  width: 40vw;
   min-height: 40vh;
   font-size: 1.5rem;
   resize: none;
@@ -81,13 +81,18 @@ main {
 }
 .translate__output {
   padding: 1rem;
-  min-width: 40vw;
+  width: 40vw;
   min-height: 40vh;
   font-size: 1.5rem;
   border: 1px solid rgb(234, 234, 234);
   border-radius: 1rem;
   color: #333333;
   background-color: rgb(234, 234, 234);
+}
+@media only screen and (max-width: 992px) {
+  .translate__output {
+    width: 95%;
+  }
 }
 .translate__buttons {
   margin-top: 1rem;
