@@ -1,11 +1,12 @@
-import * as data from "./modules/data.js";
-import * as translate from "./modules/translate.js";
+import { dictionary } from "./modules/data/data.js";
+import { morseToEnglish, englishToMorse } from "./modules/translate/translate.js";
+import { isInputMorse } from "./modules/autodetect/isInputMorse.js";
 
-// const words = "Hey my name is Matthew";
-// const morse = ".... . -.--|-- -.--|-. .- -- .|.. ...|-- .- - - .... . .--";
+const words = "Hey my name is Matthew";
+const morse = ".... . -.--|-- -.--|-. .- -- .|.. ...|-- .- - - .... . .--";
 
-// console.log(translate.englishToMorse(words, data.dictionary, false));
-// console.log(translate.morseToEnglish(morse, data.dictionary, false));
+console.log(englishToMorse(words, dictionary, false));
+console.log(morseToEnglish(morse, dictionary, false));
 
 // Settings
 let translateToEnglish = false;
@@ -26,8 +27,9 @@ const swapButton = document.getElementById("swapButton");
 const playInputButton = document.getElementById("playInputButton");
 const playOutputButton = document.getElementById("playOutputButton");
 
+
 const display = (input, boolean, morseSeparator) => {
-    const result = boolean ? translate.morseToEnglish(input.value, data.dictionary, morseSeparator) : translate.englishToMorse(input.value, data.dictionary, morseSeparator);
+    const result = boolean ? morseToEnglish(input.value, dictionary, morseSeparator) : englishToMorse(input.value, dictionary, morseSeparator);
     output.textContent = result;
 }
 
@@ -45,8 +47,25 @@ const switchLanguage = () => {
     display(input, translateToEnglish, morseSeparator);
 }
 
+// Change the separator boolean and separateButton text
+const switchSeparator = (element) => {
+    morseSeparator = !morseSeparator;
+    if (morseSeparator) {
+        element.innerHTML = "Separating words by <i class='fa-solid fa-asterisk'></i>";
+    } else {
+        element.innerHTML = "Separating words by <b>|</b>";
+    }
+    display(input, translateToEnglish, morseSeparator);
+}
+
+// Clear input text area
+const clearInput = () => {
+    input.value = "";
+    output.innerText = "Translation";
+}
+
 const copy = (element) => {
-    // Check for undefined
+    // Do nothing if undefined
     if (typeof element.innerText !== "undefined" || typeof element.value !== "undefined") {
 
         // Check if element is from input or from output
@@ -56,23 +75,6 @@ const copy = (element) => {
             navigator.clipboard.writeText(element.innerText);
         }   
     }
-}
-
-// Change the separator boolean and separateButton text
-const switchSeparator = () => {
-    morseSeparator = !morseSeparator;
-    if (morseSeparator) {
-        separateButton.innerHTML = "Separating words by <i class='fa-solid fa-asterisk'></i>";
-    } else {
-        separateButton.innerHTML = "Separating words by <b>|</b>";
-    }
-    display(input, translateToEnglish, morseSeparator);
-}
-
-// Clear input text area
-const clearInput = () => {
-    input.value = "";
-    output.innerText = "Translation";
 }
 
 // Translate whenever there is a change to the input text area or when switching from or to Morse
@@ -86,16 +88,15 @@ copyInputButton.addEventListener("click", () => copy(input));
 copyOutputButton.addEventListener("click", () => copy(output));
 
 // SeparateButton to callback
-separateButton.addEventListener("click", switchSeparator);
+separateButton.addEventListener("click", () => switchSeparator(separateButton));
 
 // ClearButton to callback
 clearButton.addEventListener("click", clearInput);
 
+// Check if text to speech is supported on user's browser
 if ('speechSynthesis' in window) {
     // Speech Synthesis supported 🎉
 } else {
-    // Speech Synthesis Not Supported 😣
-    //alert("Sorry, your browser doesn't support text to speech!");
     playInputButton.remove();
     playOutputButton.remove();
 }

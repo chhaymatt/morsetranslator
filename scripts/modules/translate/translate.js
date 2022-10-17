@@ -7,7 +7,7 @@
  */
  export const englishToMorse = (input, dictionary, isSeparator) => {
     const separator = isSeparator ? "*" : "|";
-    const capitalise = input.toUpperCase(); // Capitalises every character
+    const capitalise = input.trim().toUpperCase(); // Capitalises every character
     const words = capitalise.split(" "); // Splits each word into an array element
     const wordsCharacters = words.map(word => word.split("")) // Splits each character into a nested array element
     const morseWordsCharacters = wordsCharacters.map(word => word.map(character => dictionary[character])); // Converts every character in each word to morse code
@@ -27,7 +27,7 @@
  */
 export const morseToEnglish = (input, dictionary, isSeparator) => {
     const separator = isSeparator ? "*" : "|";
-    const morse = input.split(separator); // Splits each word based on separator character
+    const morse = input.trim().split(separator); // Splits each word based on separator character
     const morseCharacters = morse.map(character => character.split(" ")) // Splits every character into a nested array element
     // console.log(morseCharacters);
     const wordsCharacters = morseCharacters.map(word => word.map(character => Object.keys(dictionary).find(key => dictionary[key] === character))); 
