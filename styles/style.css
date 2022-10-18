@@ -162,3 +162,7 @@ footer {
   color: rgb(39, 52, 105);
   font-weight: bold;
 }
+
+.hidden {
+  display: none;
+}

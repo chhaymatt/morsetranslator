@@ -9,7 +9,6 @@ console.log(englishToMorse(words, dictionary, false));
 console.log(morseToEnglish(morse, dictionary, false));
 
 // Settings
-// let translateToEnglish = false;
 let morseSeparator = false; // Words will be separated by | if false otherwise *
 
 // ID elements
@@ -17,13 +16,11 @@ const input = document.getElementById("input");
 const output = document.getElementById("output");
 const languageFrom = document.getElementById("languageFrom");
 const languageTo = document.getElementById("languageTo");
-// const languageRow = document.getElementsByClassName("translate__language");
 const copyInputButton = document.getElementById("copyInputButton");
 const copyOutputButton = document.getElementById("copyOutputButton");
 const separateButton = document.getElementById("separateButton");
 const clearButton = document.getElementById("clearButton");
 const footerText = document.getElementById("footerText");
-// const swapButton = document.getElementById("swapButton");
 const playInputButton = document.getElementById("playInputButton");
 const playOutputButton = document.getElementById("playOutputButton");
 
@@ -35,15 +32,19 @@ const display = (input, morseSeparator) => {
         result = morseToEnglish(input.value, dictionary, morseSeparator);
         languageFrom.innerText = "Morse";
         languageTo.innerText = "English";
+        playInputButton.classList.add("hidden");
+        playOutputButton.classList.remove("hidden");
     } else {
         result = englishToMorse(input.value, dictionary, morseSeparator)
         languageFrom.innerText = "English";
         languageTo.innerText = "Morse";
+        playInputButton.classList.remove("hidden");
+        playOutputButton.classList.add("hidden");
     }
     output.textContent = result;
 }
 
-// Change the separator boolean and separateButton text
+// Change the separator boolean and separateButton text handler
 const switchSeparator = (element) => {
     morseSeparator = !morseSeparator;
     if (morseSeparator) {
@@ -54,12 +55,13 @@ const switchSeparator = (element) => {
     display(input, morseSeparator);
 }
 
-// Clear input text area
+// Clear input handler
 const clearInput = () => {
     input.value = "";
     output.innerText = "Translation";
 }
 
+// Copy input/output handler
 const copy = (element) => {
     // Do nothing if undefined
     if (typeof element.innerText !== "undefined" || typeof element.value !== "undefined") {
@@ -75,9 +77,6 @@ const copy = (element) => {
 
 // Translate whenever there is a change to the input text area or when switching from or to Morse
 input.addEventListener("input", () => display(input, morseSeparator));
-// languageRow[0].addEventListener("click", switchLanguage);
-// languageRow[1].addEventListener("click", switchLanguage);
-// swapButton.addEventListener("click", switchLanguage);
 
 // CopyButton to callback
 copyInputButton.addEventListener("click", () => copy(input));
