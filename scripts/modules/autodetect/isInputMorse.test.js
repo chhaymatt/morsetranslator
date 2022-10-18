@@ -1,12 +1,11 @@
 import { isInputMorse } from "./isInputMorse.js";
-
 describe("Auto detecting Morse and English correctly", () => {  
 
     // Test data
     const testData = {
         1: "Hello World",
         2: "What's 1 2 3 going on?",
-        3: "123 1 2 3",
+        3: "123.",
         4: ".- ... . .-. .",
         5: "* | * |",
         6: ". | ..-- | ...",
@@ -21,7 +20,7 @@ describe("Auto detecting Morse and English correctly", () => {
     test("Detects English text and numbers as English", () => {
         expect(isInputMorse(testData[2])).toBe(false);
     })
-    test("Detects numbers as English", () => {
+    test("Detects numbers and dots as English", () => {
         expect(isInputMorse(testData[3])).toBe(false);
     })
     test("Detects Morse as Morse", () => {
