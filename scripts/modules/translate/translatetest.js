@@ -4,7 +4,7 @@ import { englishToMorse, morseToEnglish } from "./translate.js";
 
 //     // Test data
 //     const testData = {
-//         1: "",
+//         1: "123",
 //         2: "",
 //         3: "",
 //         4: "",

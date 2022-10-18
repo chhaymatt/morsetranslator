@@ -5,7 +5,7 @@ describe("Auto detecting Morse and English correctly", () => {
     const testData = {
         1: "Hello World",
         2: "What's 1 2 3 going on?",
-        3: "123.",
+        3: "123..",
         4: ".- ... . .-. .",
         5: "* | * |",
         6: ". | ..-- | ...",

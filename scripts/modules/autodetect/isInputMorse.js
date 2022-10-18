@@ -11,7 +11,7 @@ export const isInputMorse = (input) => {
     const inputTrimSplit = input.trim().toUpperCase();
     if (patternMorse.test(inputTrimSplit) && !patternLetters.test(inputTrimSplit)) {
         // Assume Morse input due to *-|. characters and NO A-Z or number characters
-        console.log("Detected Morse in string:", inputTrimSplit)
+        // console.log("Detected Morse in string:", inputTrimSplit)
         return true;
     } else {
         // Assume English input
