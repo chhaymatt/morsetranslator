@@ -24,7 +24,7 @@ const footerText = document.getElementById("footerText");
 const playInputButton = document.getElementById("playInputButton");
 const playOutputButton = document.getElementById("playOutputButton");
 
-
+// Display the output to the user
 const display = (input, morseSeparator) => {
     const autoDetect = isInputMorse(input.value);
     let result;
@@ -65,7 +65,6 @@ const clearInput = () => {
 const copy = (element) => {
     // Do nothing if undefined
     if (typeof element.innerText !== "undefined" || typeof element.value !== "undefined") {
-
         // Check if element is from input or from output
         if (element.id === "input") {
             navigator.clipboard.writeText(element.value);
@@ -108,7 +107,6 @@ const textToSpeech = (element) => {
         msg.voice = speechSynthesis.getVoices().find(voice => voice.voiceURI === "Karen"); // "Alex", "Karen"
         window.speechSynthesis.speak(msg);
     }
-   
 }
 
 // Play text to speech
