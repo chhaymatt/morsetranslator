@@ -1,79 +1,123 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script defer type="module" src="./scripts/script.js"></script>
-    <link rel="stylesheet" href="./styles/style.css">
-    <!-- Font Awesome -->
-    <script src="https://kit.fontawesome.com/c3aaf1830b.js" crossorigin="anonymous"></script>
-    <title>Matthew Chhay | Morse Translator</title>
-    <!-- Favicons by https://favicon.io/favicon-generator/ -->
-    <link rel="apple-touch-icon" sizes="180x180" href="./styles/favicon/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="./styles/favicon/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="./styles/favicon/favicon-16x16.png">
-    <link rel="manifest" href="./styles/favicon/site.webmanifest">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<script defer type="module" src="./modules/script.js"></script>
+		<link rel="stylesheet" href="./styles/style.css" />
+		<!-- Font Awesome -->
+		<script
+			src="https://kit.fontawesome.com/c3aaf1830b.js"
+			crossorigin="anonymous"></script>
+		<title>Matthew Chhay | Morse Translator</title>
+		<!-- Favicons by https://favicon.io/favicon-generator/ -->
+		<link
+			rel="apple-touch-icon"
+			sizes="180x180"
+			href="./styles/favicon/apple-touch-icon.png" />
+		<link
+			rel="icon"
+			type="image/png"
+			sizes="32x32"
+			href="./styles/favicon/favicon-32x32.png" />
+		<link
+			rel="icon"
+			type="image/png"
+			sizes="16x16"
+			href="./styles/favicon/favicon-16x16.png" />
+		<link rel="manifest" href="./styles/favicon/site.webmanifest" />
 
-    <!-- Primary Meta Tags -->
-    <title>Matthew Chhay | Morse Translator</title>
-    <meta name="title" content="Matthew Chhay | Morse Translator">
-    <meta name="description" content="Translating English text into Morse Code and vice versa using JS methods.">
+		<!-- Primary Meta Tags -->
+		<title>Matthew Chhay | Morse Translator</title>
+		<meta name="title" content="Matthew Chhay | Morse Translator" />
+		<meta
+			name="description"
+			content="Translating English text into Morse Code and vice versa using JS methods." />
 
-    <!-- Open Graph / Facebook -->
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://chhaymatt.github.io/morsetranslator/">
-    <meta property="og:title" content="Matthew Chhay | Morse Translator">
-    <meta property="og:description" content="Translating English text into Morse Code and vice versa using JS methods.">
-    <meta property="og:image" content="https://i.imgur.com/l5GcnlV.png">
+		<!-- Open Graph / Facebook -->
+		<meta property="og:type" content="website" />
+		<meta
+			property="og:url"
+			content="https://chhaymatt.github.io/morsetranslator/" />
+		<meta property="og:title" content="Matthew Chhay | Morse Translator" />
+		<meta
+			property="og:description"
+			content="Translating English text into Morse Code and vice versa using JS methods." />
+		<meta property="og:image" content="https://i.imgur.com/l5GcnlV.png" />
 
-    <!-- Twitter -->
-    <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://chhaymatt.github.io/morsetranslator/">
-    <meta property="twitter:title" content="Matthew Chhay | Morse Translator">
-    <meta property="twitter:description" content="Translating English text into Morse Code and vice versa using JS methods.">
-    <meta property="twitter:image" content="https://i.imgur.com/l5GcnlV.png">
-</head>
-<body>
-    <header>
-        <h1>Morse Translator</h1>
-    </header>
+		<!-- Twitter -->
+		<meta property="twitter:card" content="summary_large_image" />
+		<meta
+			property="twitter:url"
+			content="https://chhaymatt.github.io/morsetranslator/" />
+		<meta
+			property="twitter:title"
+			content="Matthew Chhay | Morse Translator" />
+		<meta
+			property="twitter:description"
+			content="Translating English text into Morse Code and vice versa using JS methods." />
+		<meta
+			property="twitter:image"
+			content="https://i.imgur.com/l5GcnlV.png" />
+	</head>
+	<body>
+		<header>
+			<h1>Morse Translator</h1>
+		</header>
 
-    <main>
-        <div class="translate">
-            <div class="translate__section">
-                <div class="translate__language">
-                    <p id="languageFrom">English</p>
-                    <p class="language__text">Detected</p>
-                </div>
-                <textarea class="translate__input" id="input" placeholder="Enter English or Morse"></textarea>
-                <div class="translate__buttons">
-                    <div class="button" id="clearButton"><i class="fa-solid fa-trash"></i></div>
-                    <div class="button copy" id="copyInputButton"><i class="fa-solid fa-copy"></i></div>
-                    <div class="button play hidden" id="playInputButton"><i class="fa-solid fa-play"></i></div>
-                    <div class="button" id="separateButton">Separating words by <b>|</b></div>
-                </div>
-            </div>
-            <div class="translate__middle">
-                <div class="translate__swap" id="swapButton">
-                    <i class="fa-solid fa-right-left"></i>
-                </div>
-            </div>
-            <div class="translate__section">
-                <div class="translate__language">
-                    <p id="languageTo">Morse</p>
-                    <p class="language__text"></p>
-                </div>
-                <div class="translate__output" id="output">Translation</div>
-                <div class="translate__buttons">
-                    <div class="button" id="copyOutputButton"><i class="fa-solid fa-copy"></i></div>
-                    <div class="button play hidden" id="playOutputButton"><i class="fa-solid fa-play"></i></div>
-                </div>
-            </div>
-        </div>
-    </main>
-    <footer>
-        <a class="link" target="_blank" href="https://matthewchhay.com"><p id="footerText">Made by Matthew Chhay</p></a>
-    </footer>
-</body>
+		<main>
+			<div class="translate">
+				<div class="translate__section">
+					<div class="translate__language">
+						<p id="languageFrom">English</p>
+						<p class="language__text">Detected</p>
+					</div>
+					<textarea
+						class="translate__input"
+						id="input"
+						placeholder="Enter English or Morse"></textarea>
+					<div class="translate__buttons">
+						<div class="button" id="clearButton">
+							<i class="fa-solid fa-trash"></i>
+						</div>
+						<div class="button copy" id="copyInputButton">
+							<i class="fa-solid fa-copy"></i>
+						</div>
+						<div class="button play hidden" id="playInputButton">
+							<i class="fa-solid fa-play"></i>
+						</div>
+						<div class="button" id="separateButton">
+							Separating words by <b>|</b>
+						</div>
+					</div>
+				</div>
+				<div class="translate__middle">
+					<div class="translate__swap" id="swapButton">
+						<i class="fa-solid fa-right-left"></i>
+					</div>
+				</div>
+				<div class="translate__section">
+					<div class="translate__language">
+						<p id="languageTo">Morse</p>
+						<p class="language__text"></p>
+					</div>
+					<div class="translate__output" id="output">Translation</div>
+					<div class="translate__buttons">
+						<div class="button" id="copyOutputButton">
+							<i class="fa-solid fa-copy"></i>
+						</div>
+						<div class="button play hidden" id="playOutputButton">
+							<i class="fa-solid fa-play"></i>
+						</div>
+					</div>
+				</div>
+			</div>
+		</main>
+		<footer>
+			<a class="link" target="_blank" href="https://matthewchhay.com"
+				><p id="footerText">Made by Matthew Chhay</p></a
+			>
+		</footer>
+	</body>
 </html>

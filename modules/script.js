@@ -1,6 +1,6 @@
-import { dictionary } from "./modules/data/data.js";
-import { morseToEnglish, englishToMorse } from "./modules/translate/translate.js";
-import { isInputMorse } from "./modules/autodetect/isInputMorse.js";
+import { dictionary } from "./data/data.js";
+import { morseToEnglish, englishToMorse } from "./translate/translate.js";
+import { isInputMorse } from "./autodetect/isInputMorse.js";
 
 const words = "Hey my name is Matthew";
 const morse = ".... . -.--|-- -.--|-. .- -- .|.. ...|-- .- - - .... . .--";
@@ -26,53 +26,57 @@ const playOutputButton = document.getElementById("playOutputButton");
 
 // Display the output to the user
 const display = (input, morseSeparator) => {
-    const autoDetect = isInputMorse(input.value);
-    let result;
-    if (autoDetect) {
-        result = morseToEnglish(input.value, dictionary, morseSeparator);
-        languageFrom.innerText = "Morse";
-        languageTo.innerText = "English";
-        playInputButton.classList.add("hidden");
-        playOutputButton.classList.remove("hidden");
-    } else {
-        result = englishToMorse(input.value, dictionary, morseSeparator)
-        languageFrom.innerText = "English";
-        languageTo.innerText = "Morse";
-        playInputButton.classList.remove("hidden");
-        playOutputButton.classList.add("hidden");
-    }
-    output.textContent = result;
-}
+	const autoDetect = isInputMorse(input.value);
+	let result;
+	if (autoDetect) {
+		result = morseToEnglish(input.value, dictionary, morseSeparator);
+		languageFrom.innerText = "Morse";
+		languageTo.innerText = "English";
+		playInputButton.classList.add("hidden");
+		playOutputButton.classList.remove("hidden");
+	} else {
+		result = englishToMorse(input.value, dictionary, morseSeparator);
+		languageFrom.innerText = "English";
+		languageTo.innerText = "Morse";
+		playInputButton.classList.remove("hidden");
+		playOutputButton.classList.add("hidden");
+	}
+	output.textContent = result;
+};
 
 // Change the separator boolean and separateButton text handler
 const switchSeparator = (element) => {
-    morseSeparator = !morseSeparator;
-    if (morseSeparator) {
-        element.innerHTML = "Separating words by <i class='fa-solid fa-asterisk'></i>";
-    } else {
-        element.innerHTML = "Separating words by <b>|</b>";
-    }
-    display(input, morseSeparator);
-}
+	morseSeparator = !morseSeparator;
+	if (morseSeparator) {
+		element.innerHTML =
+			"Separating words by <i class='fa-solid fa-asterisk'></i>";
+	} else {
+		element.innerHTML = "Separating words by <b>|</b>";
+	}
+	display(input, morseSeparator);
+};
 
 // Clear input handler
 const clearInput = () => {
-    input.value = "";
-    output.innerText = "Translation";
-}
+	input.value = "";
+	output.innerText = "Translation";
+};
 
 // Copy input/output handler
 const copy = (element) => {
-    // Do nothing if undefined
-    if (typeof element.innerText !== "undefined" || typeof element.value !== "undefined") {
-        // Check if element is from input or from output
-        if (element.id === "input") {
-            navigator.clipboard.writeText(element.value);
-        } else {
-            navigator.clipboard.writeText(element.innerText);
-        }   
-    }
-}
+	// Do nothing if undefined
+	if (
+		typeof element.innerText !== "undefined" ||
+		typeof element.value !== "undefined"
+	) {
+		// Check if element is from input or from output
+		if (element.id === "input") {
+			navigator.clipboard.writeText(element.value);
+		} else {
+			navigator.clipboard.writeText(element.innerText);
+		}
+	}
+};
 
 // Translate whenever there is a change to the input text area or when switching from or to Morse
 input.addEventListener("input", () => display(input, morseSeparator));
@@ -88,26 +92,31 @@ separateButton.addEventListener("click", () => switchSeparator(separateButton));
 clearButton.addEventListener("click", clearInput);
 
 // Check if text to speech is supported on user's browser
-if ('speechSynthesis' in window) {
-    // Speech Synthesis supported 🎉
+if ("speechSynthesis" in window) {
+	// Speech Synthesis supported 🎉
 } else {
-    playInputButton.remove();
-    playOutputButton.remove();
+	playInputButton.remove();
+	playOutputButton.remove();
 }
 
 const textToSpeech = (element) => {
-    if (typeof element.innerText !== "undefined" || typeof element.value !== "undefined") {
-        const msg = new SpeechSynthesisUtterance();
-        // Check if element is from input or from output
-        if (element.id === "input") {
-            msg.text = element.value;
-        } else {
-            msg.text = element.innerText;
-        }   
-        msg.voice = speechSynthesis.getVoices().find(voice => voice.voiceURI === "Karen"); // "Alex", "Karen"
-        window.speechSynthesis.speak(msg);
-    }
-}
+	if (
+		typeof element.innerText !== "undefined" ||
+		typeof element.value !== "undefined"
+	) {
+		const msg = new SpeechSynthesisUtterance();
+		// Check if element is from input or from output
+		if (element.id === "input") {
+			msg.text = element.value;
+		} else {
+			msg.text = element.innerText;
+		}
+		msg.voice = speechSynthesis
+			.getVoices()
+			.find((voice) => voice.voiceURI === "Karen"); // "Alex", "Karen"
+		window.speechSynthesis.speak(msg);
+	}
+};
 
 // Play text to speech
 playInputButton.addEventListener("click", () => textToSpeech(input));

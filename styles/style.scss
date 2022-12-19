@@ -1,177 +1,176 @@
 @use "./partials/mixins";
 
 * {
-    margin: 0;
-    padding: 0;
-    font-family: Arial, Helvetica, sans-serif;
+	margin: 0;
+	padding: 0;
+	font-family: Arial, Helvetica, sans-serif;
 }
 
 h1 {
-    text-align: center;
-    font-size: 3rem;
-    margin-top: 1rem;
-    color: #333333;
-    @include mixins.tablet {
-        font-size: 2rem;
-    }
+	text-align: center;
+	font-size: 3rem;
+	margin-top: 1rem;
+	color: #333333;
+	@include mixins.tablet {
+		font-size: 2rem;
+	}
 }
 
 main {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 1rem;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding: 1rem;
 }
 
 .translate {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    width: 100%;
-    @include mixins.tablet {
-        flex-direction: column;
-    }
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	width: 100%;
+	@include mixins.tablet {
+		flex-direction: column;
+	}
 
-    &__language {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        font-size: 2rem;
-        padding: 1rem;
-        border-radius: 1rem;
-        border: 1px solid lightgrey;
-        // background-color: rgb(234, 234, 234);
-        background-color: rgb(248, 248, 248);
-        color: #333333;
-        // cursor: pointer;
-        user-select: none;
-        -webkit-touch-callout: none;
-        margin-bottom: 1rem;
+	&__language {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		font-size: 2rem;
+		padding: 1rem;
+		border-radius: 1rem;
+		border: 1px solid lightgrey;
+		// background-color: rgb(234, 234, 234);
+		background-color: rgb(248, 248, 248);
+		color: #333333;
+		// cursor: pointer;
+		user-select: none;
+		-webkit-touch-callout: none;
+		margin-bottom: 1rem;
 
-        @include mixins.tablet {
-            font-size: 1.5rem;
-            padding: 1rem;
-        }
-    }
+		@include mixins.tablet {
+			font-size: 1.5rem;
+			padding: 1rem;
+		}
+	}
 
-    &__swap {
-        font-size: 2rem;
-        width: 5vw;
-        padding: 1rem;
-        text-align: center;
-        color: #333333;
-        // cursor: pointer;
-        
-        @include mixins.tablet {
-            padding: 0.5rem;
-        }
-    }
+	&__swap {
+		font-size: 2rem;
+		width: 5vw;
+		padding: 1rem;
+		text-align: center;
+		color: #333333;
+		// cursor: pointer;
 
-    &__input {
-        word-wrap: break-word;
-        padding: 1rem;
-        width: 40vw;
-        min-height: 40vh;
-        font-size: 1.5rem;
-        resize: none;
-        outline: none;
-        border: none;
-        border-radius: 1rem;
-        color: #333333;
-        @include mixins.tablet {
-            width: 93.5%;
-        }
-    }
+		@include mixins.tablet {
+			padding: 0.5rem;
+		}
+	}
 
-    &__output {
-        word-wrap: break-word;
-        padding: 1rem;
-        width: 40vw;
-        min-height: 40vh;
-        font-size: 1.5rem;
-        border: 1px solid rgb(234, 234, 234);
-        border-radius: 1rem;
-        color: #333333;
-        background-color: rgb(248, 248, 248);
-        @include mixins.tablet {
-            width: 93.5%;
-        }
-    }
-    
-    &__buttons {
-        margin-top: 1rem;
-    }
+	&__input {
+		word-wrap: break-word;
+		padding: 1rem;
+		width: 40vw;
+		min-height: 40vh;
+		font-size: 1.5rem;
+		resize: none;
+		outline: none;
+		border: none;
+		border-radius: 1rem;
+		color: #333333;
+		@include mixins.tablet {
+			width: 93.5%;
+		}
+	}
 
-    &__middle {
-        display: flex;
-        justify-content: center;
-    }
+	&__output {
+		word-wrap: break-word;
+		padding: 1rem;
+		width: 40vw;
+		min-height: 40vh;
+		font-size: 1.5rem;
+		border: 1px solid rgb(234, 234, 234);
+		border-radius: 1rem;
+		color: #333333;
+		background-color: rgb(248, 248, 248);
+		@include mixins.tablet {
+			width: 93.5%;
+		}
+	}
+
+	&__buttons {
+		margin-top: 1rem;
+	}
+
+	&__middle {
+		display: flex;
+		justify-content: center;
+	}
 }
 
 footer {
-    text-align: center;
-    color: #333333;
-    padding-bottom: 1rem;
+	text-align: center;
+	color: #333333;
+	padding-bottom: 1rem;
 }
 
 .button {
-    display: flex;
-    text-align: center;
-    justify-content: center;
-    flex-wrap: wrap;
-    margin-bottom: 0.5rem;
-    font-size: 1.5rem;
-    padding: 1rem;
-    border-radius: 1rem;
-    background-color:rgb(234, 234, 234);
-    border: 1px solid lightgrey;
-    color: #333333;
-    user-select: none;
+	display: flex;
+	text-align: center;
+	justify-content: center;
+	flex-wrap: wrap;
+	margin-bottom: 0.5rem;
+	font-size: 1.5rem;
+	padding: 1rem;
+	border-radius: 1rem;
+	background-color: rgb(234, 234, 234);
+	border: 1px solid lightgrey;
+	color: #333333;
+	user-select: none;
 
-    @include mixins.tablet {
-        padding: 0.5rem;
-    }
+	@include mixins.tablet {
+		padding: 0.5rem;
+	}
 
-    b {
-        margin-left: 0.5rem;
-    }
+	b {
+		margin-left: 0.5rem;
+	}
 
-    i {
-        margin-left: 0.5rem;
-    }
+	i {
+		margin-left: 0.5rem;
+	}
 
-    &:hover {
-        cursor: pointer;
-        background-color: lightgrey;
-    }
+	&:hover {
+		cursor: pointer;
+		background-color: lightgrey;
+	}
 
-    &:disabled {
-        background-color: lightgrey;
-        cursor: not-allowed;
-    }
+	&:disabled {
+		background-color: lightgrey;
+		cursor: not-allowed;
+	}
 
-    &:active {
-        background-color: rgb(185, 185, 185);
-    }
+	&:active {
+		background-color: rgb(185, 185, 185);
+	}
 }
 
-
 .language {
-    &__text {
-        font-size: 1rem;
-    }
+	&__text {
+		font-size: 1rem;
+	}
 }
 
 .link {
-    color: #333333;
-    text-decoration: none;
+	color: #333333;
+	text-decoration: none;
 
-    &:hover {
-        color: rgb(39, 52, 105);
-        font-weight: bold;
-    }
+	&:hover {
+		color: rgb(39, 52, 105);
+		font-weight: bold;
+	}
 }
 
 .hidden {
-    display: none;
+	display: none;
 }
